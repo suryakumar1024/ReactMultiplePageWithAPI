@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import page from "./components/page";
+import page1 from "./components/page1";
+import page2 from "./components/page2";
+import api from "./components/apipage";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <Fragment>
+    <BrowserRouter>
+      <Switch>
+      <Route exact path="/" component={page} />
+        <Route path="/page1" component={page1} />
+        <Route path="/form" component={page2} />
+        <Route path="/api" component={api} />
+      </Switch>
+    </BrowserRouter>
+  </Fragment>
+)
 
 export default App;
